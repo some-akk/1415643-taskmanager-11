@@ -1,21 +1,16 @@
 import {createElement} from "../utils/render";
 
-const createNoTasksTemplate = () => {
-  return (
-    `<p class="board__no-tasks">
-      Click «ADD NEW TASK» in menu to create your first task
-    </p>`
-  );
-};
-
-
-export default class NoTasks {
+export default class AbstractComponent {
   constructor() {
+    if (new.target === AbstractComponent) {
+      throw new Error(`Can't instantiate AbstractComponent, only concrete one.`);
+    }
+
     this._element = null;
   }
 
   getTemplate() {
-    return createNoTasksTemplate();
+    throw new Error(`Abstract method not implemented: getTemplate`);
   }
 
   getElement() {
