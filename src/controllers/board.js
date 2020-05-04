@@ -104,7 +104,7 @@ export default class BoardController {
     const taskListElement = this._tasksComponent.getElement();
     taskListElement.innerHTML = ``;
 
-    this._showedTaskControllers = renderTasks(taskListElement, sortedTasks, this._onViewChange());
+    this._showedTaskControllers = renderTasks(taskListElement, sortedTasks, this._onDataChange, this._onViewChange());
     this._renderLoadMoreButton();
   }
 
